@@ -15,15 +15,24 @@ export const NavMenu = () => {
         <p className={styles.mobileNav__line} />
         <p className={styles.mobileNav__line} />
       </div>
+
       <ul className={styles.navList}>
         <li>
-          <a href="#about">About</a>
+          <a className={styles.link} href="#about">
+            About
+          </a>
         </li>
+
         <li>
-          <a href="#projects">Projects</a>
+          <a className={styles.link} href="#projects">
+            Projects
+          </a>
         </li>
+
         <li>
-          <a href="#contact">Contact</a>
+          <a className={styles.link} href="#contact">
+            Contact
+          </a>
         </li>
       </ul>
     </nav>

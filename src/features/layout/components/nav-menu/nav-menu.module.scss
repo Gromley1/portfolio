@@ -1,9 +1,14 @@
 @use '/src/scss/abstracts' as *;
+@use '/src/scss/base' as *;
 
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: flex-end;
   padding: toRem(20px);
+  background-color: rgba(40, 40, 40, 0.95);
 }
 
 .navList {
@@ -12,6 +17,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  color: #fafafa;
 
   @include respond-below(sm) {
     & > * {
@@ -43,4 +49,8 @@
       margin-bottom: toRem(4px);
     }
   }
+}
+
+.link {
+  @extend %link-styles;
 }
