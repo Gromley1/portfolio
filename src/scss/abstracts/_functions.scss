@@ -1,5 +1,5 @@
 @use './variables' as *;
 
 @function toRem($pixel) {
-  @return #{calc($pixel / $base-size)}rem;
+  @return #{calc($pixel / $base-font-size)}rem;
 }

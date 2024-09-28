@@ -1,4 +1,9 @@
 /* CSS Reset */
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
 html,
 body,
 div,
