@@ -13,3 +13,19 @@
   margin: toRem(20px) 0;
   box-sizing: border-box;
 }
+
+.projectList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: toRem(20px);
+  margin-top: toRem(32px);
+}
+
+.project {
+  padding: toRem(26px);
+  border-radius: toRem(6px);
+  background-color: #ffffff;
+  min-height: toRem(200px);
+  min-width: toRem(300px);
+}
