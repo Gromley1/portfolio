@@ -1,56 +1,57 @@
 @use '/src/scss/abstracts' as *;
 
 .about {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #f5f5f5;
-  color: #333;
-  padding: 0 toRem(20px);
-  margin: 0 0 toRem(20px) 0;
-  font-family: $roboto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 0 toRem(20px);
+    margin: 0 0 toRem(20px) 0;
+    font-family: $roboto;
 
-  // .about__header
-  &__header {
-    font-size: toRem(32px);
-    font-weight: 700;
-    margin-bottom: toRem(20px);
-    overflow: hidden;
-    white-space: nowrap;
-    animation:
-      typing 3.5s steps(30, end),
-      step-end infinite;
-  }
+    // .about__header
+    &__header {
+        font-size: toRem(32px);
+        font-weight: 700;
+        margin-bottom: toRem(20px);
+        overflow: hidden;
+        white-space: nowrap;
+        animation:
+            typing 3.5s steps(30, end),
+            step-end infinite;
+    }
 
-  // .about__content
-  &__content {
-    font-size: toRem(20px);
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    max-width: toRem(776px);
-    animation: slideIn 3.5s ease-out;
-  }
+    // .about__content
+    &__content {
+        font-size: toRem(20px);
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+        max-width: toRem(776px);
+        font-family: $roboto;
+        position: relative;
+        min-height: toRem(250px);
+    }
 
-  @keyframes slideIn {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
+    .caret {
+        animation: blink 1s infinite;
     }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
 
-  @keyframes typing {
-    from {
-      width: 0;
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
     }
-    to {
-      width: toRem(310px);
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: toRem(310px);
+        }
     }
-  }
 }

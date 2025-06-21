@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styles from './nav-menu.module.scss'
 
 export const NavMenu = () => {
-  const [toggleNav, setToggleNav] = useState(false)
+  const [_toggleNav, setToggleNav] = useState(false)
 
   const onNavClick = () => {
     setToggleNav((prev) => !prev)
