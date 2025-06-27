@@ -1,0 +1,225 @@
+@use '/src/scss/abstracts' as *;
+
+.contact {
+  min-height: 100vh;
+  padding: $spacing-2xl $spacing-xl;
+  background: $bg-primary;
+  position: relative;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+
+    @include respond-below(md) {
+      margin-bottom: $spacing-xl;
+    }
+  }
+
+  &__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 $spacing-sm 0;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    margin: 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-2xl;
+    align-items: start;
+
+    @include respond-below(md) {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__card {
+    background: $bg-secondary;
+    border-radius: $radius-xl;
+    padding: $spacing-lg;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: $gradient-accent;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-lg;
+      border-color: rgba(16, 185, 129, 0.3);
+
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+
+    &__icon {
+      font-size: 2rem;
+      margin-bottom: $spacing-sm;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin: 0 0 $spacing-xs 0;
+    }
+
+    &__text {
+      color: $text-secondary;
+      margin: 0 0 $spacing-md 0;
+      font-size: 0.95rem;
+    }
+
+    &__link {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-xs;
+      color: $accent;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $text-primary;
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  &__form {
+    background: $bg-secondary;
+    border-radius: $radius-xl;
+    padding: $spacing-xl;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    box-shadow: $shadow-lg;
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin: 0 0 $spacing-lg 0;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__input,
+  &__textarea {
+    background: $bg-primary;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: $radius-md;
+    padding: $spacing-sm;
+    color: $text-primary;
+    font-family: $roboto;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    resize: vertical;
+
+    &::placeholder {
+      color: $text-muted;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    &:hover {
+      border-color: rgba(148, 163, 184, 0.3);
+    }
+  }
+
+  &__textarea {
+    min-height: 120px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-xs;
+    background: $gradient-primary;
+    color: white;
+    border: none;
+    border-radius: $radius-md;
+    padding: $spacing-sm $spacing-lg;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: $spacing-sm;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &__icon {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover &__icon {
+      transform: translateX(4px);
+    }
+  }
+} 

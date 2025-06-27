@@ -10,10 +10,9 @@ export const NavMenu = () => {
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.mobileNav} onClick={onNavClick} role="button">
-        <p className={styles.mobileNav__line} />
-        <p className={styles.mobileNav__line} />
-        <p className={styles.mobileNav__line} />
+      <div className={styles.brand}>
+        <span className={styles.brand__logo}>&lt;/&gt;</span>
+        <span className={styles.brand__text}>Griffin.dev</span>
       </div>
 
       <ul className={styles.navList}>
@@ -35,6 +34,12 @@ export const NavMenu = () => {
           </a>
         </li>
       </ul>
+
+      <div className={styles.mobileNav} onClick={onNavClick} role="button">
+        <p className={styles.mobileNav__line} />
+        <p className={styles.mobileNav__line} />
+        <p className={styles.mobileNav__line} />
+      </div>
     </nav>
   )
 }

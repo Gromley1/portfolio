@@ -2,55 +2,137 @@
 @use '/src/scss/base' as *;
 
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   display: flex;
-  justify-content: flex-end;
-  padding: toRem(20px);
-  background-color: rgba(40, 40, 40, 0.95);
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-xl;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(15, 23, 42, 0.95);
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-family: $mono;
+  font-weight: 600;
+
+  &__logo {
+    font-size: 1.5rem;
+    color: $primary;
+    animation: pulse 2s infinite;
+  }
+
+  &__text {
+    font-size: 1.1rem;
+    color: $text-primary;
+    letter-spacing: -0.5px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .navList {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   list-style: none;
-  padding: 0;
+  gap: $spacing-lg;
   margin: 0;
-  color: #fafafa;
+  padding: 0;
 
   @include respond-below(sm) {
-    & > * {
-      display: none;
-    }
-  }
-
-  & > * {
-    &:not(:first-child) {
-      margin-left: toRem(20px);
-    }
-  }
-}
-
-.mobileNav {
-  height: toRem(20px);
-
-  @include respond-above(sm) {
     display: none;
-  }
-
-  &__line {
-    height: toRem(4px);
-    border-radius: toRem(6px);
-    width: toRem(26px);
-    background-color: #333;
-
-    &:not(:last-child) {
-      margin-bottom: toRem(4px);
-    }
   }
 }
 
 .link {
-  @extend %link-styles;
+  position: relative;
+  color: $text-secondary;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-md;
+  transition: all 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: $gradient-primary;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: $text-primary;
+    background: rgba(99, 102, 241, 0.1);
+
+    &::before {
+      width: 80%;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.mobileNav {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: $spacing-xs;
+  border-radius: $radius-md;
+  transition: all 0.3s ease;
+
+  @include respond-below(sm) {
+    display: flex;
+  }
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.1);
+  }
+
+  &__line {
+    width: 24px;
+    height: 2px;
+    background: $text-secondary;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+
+    &:nth-child(1) {
+      transform-origin: top left;
+    }
+
+    &:nth-child(3) {
+      transform-origin: bottom left;
+    }
+  }
+
+  &:hover &__line {
+    background: $text-primary;
+  }
 }

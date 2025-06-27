@@ -1,4 +1,4 @@
-import { NavMenu, About, Projects } from './components'
+import { NavMenu, About, Projects, Contact } from './components'
 import styles from './layout.module.scss'
 
 // import { Footer } from './footer/footer.component'
@@ -10,6 +10,7 @@ export const Layout = () => {
       <NavMenu />
       <About />
       <Projects />
+      <Contact />
     </div>
   )
 }
